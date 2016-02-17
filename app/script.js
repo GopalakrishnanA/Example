@@ -5,7 +5,7 @@ var myApp = angular.module('myApp', ['sectionDirectiveApp', "acnDirectives"]);
 
 myApp.controller('maincontroller',function($scope,$http) 
     {
-	$http.get('../acn/json/DataObj.json').then(function(res) {
+	$http.get('json/DataObj.json').then(function(res) {
 		$scope.pageMeta = res.data;
 		$scope.myData = {};
 		/*
