@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html  ng-app="myApp">
+<head>
+
+
+ <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Sample Page</title>
+    <title>UI Meta Driven Development</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -28,15 +30,68 @@
     
     
     <!-- Include Angular & and its modules -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     
-        
     
     <!-- Your custom CSS -->
     
     <!-- Your custom javascript -->
-  </head>
-  <body>
-    <h1>Hello, there!</h1>
-  </body>
+<!-- <script src="app/angular.min.js"></script> -->
+<script src="app/script.js"></script>
+<script src="app/textbox.js"></script>  
+<script src="app/sectionDirective.js"></script> 
+ <script src="app/radiobox.js"></script>
+ <script src="app/textArea.js"></script>
+ <script src="app/checkbox.js"></script>
+ <script src="app/selectBox.js"></script>
+ 
+ 
+
+<link rel="stylesheet" type="text/css" href="assets/main.css">
+<script src="app/directives/acnDirectives.js"></script>
+<header div="container">
+	<h1>UI Meta Driven Developement</h1>
+</header>
+
+</head>
+<body ng-controller="maincontroller">
+
+<!-- 	<section-directive sections="pageMeta.sections"></section-directive> -->
+<!-- 	<button ng-click="submitClick();">Submit</button> -->
+	
+	
+	<div class="content"> 
+	<div>
+	<table>  
+		<tr ng-repeat="field in pageMeta.sections[0].fields">	
+		<div class="col-md-4">
+		<th>Field {{field.name}} </th>
+		<td>User Input: {{field.userInput}}</td>
+		</div>
+	</tr>
+	</table><br>
+	</div>
+		<div class="col-md-4 col-md-offset-4">
+
+			<div class="panel panel-primary" ng-repeat="s in pageMeta.sections">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{s.title}}</h3>
+				</div>
+				<div class="panel-body">
+
+					<form>
+						<div class="form-group" ng-repeat="f in s.fields">
+							<label for="exampleInputEmail1">{{f.name}}</label>
+							<acn-field data="f" ng-model="f.userInput"></acn-field>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		
+</div>
+
+
+	
+</body>
 </html>
